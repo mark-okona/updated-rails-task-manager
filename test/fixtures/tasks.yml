@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  details: MyString
+  string: MyString
+  completed: MyString
+  boolean: MyString
+
+two:
+  details: MyString
+  string: MyString
+  completed: MyString
+  boolean: MyString
