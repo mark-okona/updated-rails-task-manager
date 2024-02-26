@@ -1,9 +1,46 @@
-<h1><strong>To Do:</strong></h1>
+<div class="index-container">
 
-<ul>
-  <% @tasks.each do |task| %>
-    <li><%= link_to task.title, task %></li>
-  <% end %>
-</ul>
+  <% index_title = "Things to be Done:" %>
 
-<%= link_to "Create a new task", "/tasks/new" %>
+  <section class="index-heading">
+    <div class="word">
+      <% index_title.chars().each do |char| %>
+        <span class="char">
+          <% if char == " " %>
+            &nbsp;
+          <% else %>
+            <%=char%>
+          <% end %>
+        </span>
+      <% end %>
+    </div>
+  </section>
+
+
+  <div class="index-list">
+
+    <% @tasks.each do |task| %>
+      <div class="icon toggle-button <%= 'icon-completed' if task.completed %>" data-link-id="<%= dom_id(task) %>"></div>
+      <%= link_to task_path(task), class: "index-list-item #{'completed' if task.completed}", id: dom_id(task) do %>
+        <%= task.title %>
+      <% end %>
+    <% end %>
+
+
+  </div>
+
+
+
+  <div class="index-links">
+
+    <%= link_to new_path do %>
+      <%= image_tag "plus-sign-green.svg", class: "plus" %>
+    <% end %>
+
+    <div class="index-links-inner">
+      <%=  link_to "Create a new task", "/tasks/new" %>
+    </div>
+
+  </div>
+
+</div>

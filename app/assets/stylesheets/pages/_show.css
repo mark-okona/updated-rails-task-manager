@@ -1,0 +1,46 @@
+.show-container {
+  margin: 10% 30%;
+}
+
+.show-actions {
+  margin: 20px 40%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.show-heading {
+  text-align: center;
+  margin-bottom: 10%;
+}
+/* .show-description {
+
+} */
+/* .show-main-information {
+  /* margin-left: 30%;
+  margin-right: 30%;
+  margin-top: 5%; */
+
+.show-completed-row {
+  display: grid;
+  grid-template-columns: 5% 1fr;
+
+}
+
+.show-icon {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  border: solid 2px var(--second-color);
+  margin-top: 4px;
+  margin-right: 7px;
+}
+
+
+.show-icon-completed {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  border: solid 2px var(--third-color);
+  margin-top: 4px;
+  margin-right: 7px;
+}

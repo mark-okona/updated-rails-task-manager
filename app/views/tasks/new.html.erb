@@ -1,11 +1,43 @@
-<%= form_with model: @task do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :details %>
-  <%= f.text_field :details %>
-  <%= f.label :completed %>
-  <%= f.check_box :completed %>
-  <%= f.submit %>
-<% end %>
+<div class="new-container">
 
-<%= link_to "Return to list", "/tasks" %>
+  <% new_title = "What do you need to do?" %>
+
+  <section class="new-heading">
+    <div class="word">
+      <% new_title.chars().each do |char| %>
+        <span class="char">
+          <% if char == " " %>
+            &nbsp;
+          <% else %>
+            <%=char%>
+          <% end %>
+        </span>
+      <% end %>
+    </div>
+  </section>
+
+
+  <div class="new-form">
+    <%= form_with model: @task do |f| %>
+      <div class="new-form-title">
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+      </div>
+      <div class="new-form-details">
+        <%= f.label :details %>
+        <%= f.text_field :details %>
+      </div>
+      <div class="new-form-completed">
+        <%= f.label :completed %>
+        <%= f.check_box :completed %>
+      </div>
+      <div class="new-form-submit">
+        <%= f.submit %>
+        <%= link_to tasks_path do %>
+          <%= image_tag "return.svg", class: "new-plus" %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+</div>

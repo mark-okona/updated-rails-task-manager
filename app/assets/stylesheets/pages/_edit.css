@@ -1,0 +1,51 @@
+.edit-container {
+  margin: 10% 30%;
+}
+
+.edit-heading {
+  text-align: center;
+  margin-bottom: 10%;
+}
+
+.edit-form-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.edit-form-details {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* .edit-form-details #task_details {
+  width: 100% !important;
+  margin-top: 5px;
+} */
+
+.edit-form-completed {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.edit-form-submit {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.edit-form-submit input {
+  font-size: 16px;
+  color: var(--second-color);
+  background-color: var(--first-color);
+  border-radius: 5%;
+  box-shadow: none;
+  border: solid 1px var(--second-color);
+}
+
+.edit-plus {
+  width: 12px;
+  color: var(--second-color);
+  padding-right: 3px;
+}

@@ -1,9 +1,42 @@
-<%= form_with model: @task do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :details %>
-  <%= f.text_field :details %>
-  <%= f.label :completed %>
-  <%= f.check_box :completed %>
-  <%= f.submit %>
-<% end %>
+<div class="edit-container">
+
+  <% edit_title = "Edit Task" %>
+
+  <section class="edit-heading">
+    <div class="word">
+      <% edit_title.chars().each do |char| %>
+        <span class="char">
+          <% if char == " " %>
+            &nbsp;
+          <% else %>
+            <%=char%>
+          <% end %>
+        </span>
+      <% end %>
+    </div>
+  </section>
+
+  <div class="edit-form">
+    <%= form_with model: @task do |f| %>
+      <div class="edit-form-title">
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+      </div>
+      <div class="edit-form-details">
+        <%= f.label :details %>
+        <%= f.text_field :details %>
+      </div>
+      <div class="edit-form-completed">
+        <%= f.label :completed %>
+        <%= f.check_box :completed %>
+      </div>
+      <div class="edit-form-submit">
+        <%= f.submit %>
+        <%= link_to tasks_path do %>
+          <%= image_tag "return.svg", class: "edit-plus" %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+</div>

@@ -1,10 +1,64 @@
-<h2><%= @task.title %></h2>
-<p><%= @task.details %></p>
-<p><%= @task.completed %></p>
+<div class="show-container">
 
-<%= link_to "Edit task", edit_path(@task) %>
-<%= link_to "Back to list", "/tasks" %>
-<%= link_to "Delete",
-  task_path(@task),
-  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-%>
+  <section class="show-heading">
+    <div class="word">
+      <% @task.title.chars().each do |char| %>
+        <span class="char">
+          <% if char == " " %>
+            &nbsp;
+          <% else %>
+            <%=char%>
+          <% end %>
+        </span>
+      <% end %>
+    </div>
+  </section>
+  <div class="show-main-information">
+    <div class="show-description">
+      <p>Description: </p>
+      <p><%= @task.details %></p>
+    </div>
+
+    <div class="show-completed">
+      <% if @task.completed %>
+        <div class="show-completed-row">
+          <div class="show-icon-completed"></div>
+          <%= "Complete"%>
+        </div>
+      <% else %>
+        <div class="show-completed-row">
+          <div class="show-icon"></div>
+          <%= "Incomplete" %>
+        </div>
+      <% end %>
+    </div>
+
+
+    <div class="show-actions">
+      <%# <%= link_to "Edit task", edit_path(@task) %>
+      <%= link_to edit_path do %>
+          <%= image_tag "edit.svg", class: "plus" %>
+        <% end %>
+
+      <%# <%= link_to "Back to list", "/tasks" %>
+      <%= link_to tasks_path do %>
+          <%= image_tag "return.svg", class: "plus" %>
+        <% end %>
+
+      <%# <%= link_to "Delete",
+        task_path(@task),
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+      %>
+
+      <%# <%= link_to delete_path(@task) do %>
+          <%# <%= image_tag "delete.svg", class: "plus" %>
+        <%# <% end %>
+
+    <%= link_to task_path(@task),
+      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+    <%= image_tag "delete.svg", class: "plus" %>
+    <% end %>
+    </div>
+  </div>
+
+</div>
